@@ -8,26 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc //get managed context    
+    @Environment(\.managedObjectContext) var moc //get managed context
     @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> //fetch all books that saved in core data
     
     @State private var showingAddScreen = false
     
     var body: some View {
         NavigationView {
-            Text("Count: \(books.count)")
-                .navigationTitle("Literal")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            showingAddScreen.toggle()
-                        } label: {
-                             Label("Add Book", systemImage: "plus")
+            List {
+                ForEach(books) { book in
+                    NavigationLink {
+                        Text(book.title ?? "Unknown Title")
+                    } label: {
+                        EmojiRatingView(rating: book.rating)
+                            .font(.largeTitle)
+                        
+                        VStack(alignment: .leading) {
+                            Text(book.title ?? "Unknown title")
+                                .font(.headline)
+                            
+                            Text(book.author ?? "Unknown Author")
+                                .foregroundColor(.secondary)
                         }
                     }
-                }.sheet(isPresented: $showingAddScreen) {
-                    AddBookView()
                 }
+            }
+            .navigationTitle("Literal")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingAddScreen.toggle()
+                    } label: {
+                        Label("Add Book", systemImage: "plus")
+                    }
+                }
+            }.sheet(isPresented: $showingAddScreen) {
+                AddBookView()
+            }
         }
     }
 }
