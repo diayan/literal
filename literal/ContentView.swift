@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc //get managed context
+    @Environment(\.managedObjectContext) var moc //get managed context    
     @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> //fetch all books that saved in core data
     
     @State private var showingAddScreen = false

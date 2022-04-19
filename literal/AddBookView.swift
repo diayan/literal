@@ -10,6 +10,7 @@ import SwiftUI
 struct AddBookView: View {
     //environment variable to manage data that is loaded at the start of the app in LiteralApp
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss //use to dismiss presented view
     
     //the form will need all these data locally
     @State private var title  = ""
@@ -57,6 +58,7 @@ struct AddBookView: View {
                         newBook.review = review
                         
                         try? moc.save()
+                        dismiss() //dismiss view after saving data
                     }
                 }
             }.navigationTitle("Add Book")
