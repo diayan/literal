@@ -15,6 +15,7 @@
 		B29CC005280EBADA006B8A8A /* Literal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B29CC003280EBADA006B8A8A /* Literal.xcdatamodeld */; };
 		B29CC007280EBC85006B8A8A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC006280EBC85006B8A8A /* DataController.swift */; };
 		B29CC009280EBDC2006B8A8A /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC008280EBDC2006B8A8A /* AddBookView.swift */; };
+		B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00A280EE0A9006B8A8A /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		B29CC004280EBADA006B8A8A /* Literal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Literal.xcdatamodel; sourceTree = "<group>"; };
 		B29CC006280EBC85006B8A8A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B29CC008280EBDC2006B8A8A /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		B29CC00A280EE0A9006B8A8A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B29CBFD6280E8F79006B8A8A /* ContentView.swift */,
 				B29CC006280EBC85006B8A8A /* DataController.swift */,
 				B29CC008280EBDC2006B8A8A /* AddBookView.swift */,
+				B29CC00A280EE0A9006B8A8A /* RatingView.swift */,
 				B29CC003280EBADA006B8A8A /* Literal.xcdatamodeld */,
 				B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */,
 				B29CBFDA280E8F7B006B8A8A /* Preview Content */,
@@ -209,6 +212,7 @@
 				B29CBFD7280E8F79006B8A8A /* ContentView.swift in Sources */,
 				B29CC007280EBC85006B8A8A /* DataController.swift in Sources */,
 				B29CC005280EBADA006B8A8A /* Literal.xcdatamodeld in Sources */,
+				B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */,
 				B29CBFD5280E8F79006B8A8A /* LiteralApp.swift in Sources */,
 				B29CC009280EBDC2006B8A8A /* AddBookView.swift in Sources */,
 			);
