@@ -8,9 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc //get managed context    
+    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> //fetch all books that saved in core data
+    
+    @State private var showingAddScreen = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Text("Count: \(books.count)")
+                .navigationTitle("Literal")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            showingAddScreen.toggle()
+                        } label: {
+                             Label("Add Book", systemImage: "plus")
+                        }
+                    }
+                }.sheet(isPresented: $showingAddScreen) {
+                    AddBookView()
+                }
+        }
     }
 }
 
