@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc //get managed context
-    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book> //fetch all books that saved in core data
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.title), //sort alphabetically by title of book
+        SortDescriptor(\.author) //second sort just incase title is not enough to sort
+    ]) var books: FetchedResults<Book> //fetch all books that saved in core data
     
     @State private var showingAddScreen = false
     
@@ -32,9 +35,14 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteBook(at:))
             }
             .navigationTitle("Literal")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showingAddScreen.toggle()
@@ -46,6 +54,15 @@ struct ContentView: View {
                 AddBookView()
             }
         }
+    }
+    
+    func deleteBook(at offsets: IndexSet) {
+        for offset in offsets {
+            let book = books[offset]
+            moc.delete(book)
+        }
+        
+        try? moc.save()
     }
 }
 

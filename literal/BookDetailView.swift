@@ -9,6 +9,10 @@ import SwiftUI
 
 struct BookDetailView: View {
     let book: Book
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss //use to dismiss presented view
+    @State private var showDeleteAlert = false
+    
     
     var body: some View {
         ScrollView {
@@ -39,5 +43,24 @@ struct BookDetailView: View {
         }
         .navigationTitle(book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Delete book?", isPresented: $showDeleteAlert) {
+            Button("Delete", role: .destructive, action: deleteBook)
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Are you sure?")
+        }
+        .toolbar{
+            Button {
+                showDeleteAlert = true
+            } label: {
+                Label("Delete this book", systemImage: "trash")
+            }
+        }
+    }
+    
+    func deleteBook() {
+        moc.delete(book)
+        try? moc.save()
+        dismiss() //dismiss detail view after deleting the book
     }
 }
