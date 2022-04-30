@@ -50,8 +50,25 @@ struct ContentView: View {
                         Label("Add Book", systemImage: "plus")
                     }
                 }
+                
             }.sheet(isPresented: $showingAddScreen) {
-                AddBookView()
+                
+                NavigationView {
+                    AddBookView()
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("Dismiss", action: {
+                                    showingAddScreen = false
+                                })
+                            }
+                            
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button("Add", action: {
+                                    showingAddScreen = false
+                                })
+                            }
+                        }
+                }.background(.purple)
             }
         }
     }

@@ -22,9 +22,9 @@ struct AddBookView: View {
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller", "Tragedy"]
 
     var body: some View {
-        NavigationView {
+        //NavigationView {
             Form {
-                Section {
+                Section(header: Text("Book Info")) {
                     TextField("Name of book", text: $title)
                     TextField("Author's name", text: $author)
                     
@@ -62,8 +62,8 @@ struct AddBookView: View {
                         dismiss() //dismiss view after saving data
                     }
                 }
-            }.navigationTitle("Add Book")
-        }
+          //  }.navigationTitle("Add Book")
+            }
     }
 }
 
