@@ -64,16 +64,6 @@ struct ContentView: View {
                             
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Button("Add", action: {
-    //
-    //        //                        The properties of newScrumData are bound to the controls of
-    //        //                        EditView and have the current info that the user set. The
-    //        //                        scrums array contains elements of DailyScrum, so you’ll need
-    //        //                        to create a new DailyScrum to insert into the array.
-    //                                let newScrum = DailyScrum(title: newScrumData.title, attendees: newScrumData.attendees, lengthInMinutes: Int(newScrumData.lengthInMinutes), color: newScrumData.color)
-    //
-    //        //                        The scrums array is a binding, so updating the array in this
-    //        //                        view updates the source of truth contained in the app.
-    //                                scrums.append(newScrum)
                                     showingAddScreen = false
                                 })
                             }
