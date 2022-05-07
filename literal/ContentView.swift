@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc //get managed context
+    @State private var search = ""
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title), //sort alphabetically by title of book
         SortDescriptor(\.author) //second sort just incase title is not enough to sort
@@ -38,6 +39,7 @@ struct ContentView: View {
                 .onDelete(perform: deleteBook(at:))
             }
             .navigationTitle("Literal")
+            .searchable(text: $search)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
