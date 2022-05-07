@@ -18,6 +18,7 @@
 		B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00A280EE0A9006B8A8A /* RatingView.swift */; };
 		B29CC00D280F1BFF006B8A8A /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */; };
 		B29CC00F280F60D1006B8A8A /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00E280F60D1006B8A8A /* BookDetailView.swift */; };
+		B2D8CE0028269C1F004484AB /* HomeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B29CC00A280EE0A9006B8A8A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 		B29CC00E280F60D1006B8A8A /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGridItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				B29CC003280EBADA006B8A8A /* Literal.xcdatamodeld */,
 				B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */,
 				B29CBFDA280E8F7B006B8A8A /* Preview Content */,
+				B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */,
 			);
 			path = literal;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B29CC00F280F60D1006B8A8A /* BookDetailView.swift in Sources */,
+				B2D8CE0028269C1F004484AB /* HomeGridItemView.swift in Sources */,
 				B29CBFD7280E8F79006B8A8A /* ContentView.swift in Sources */,
 				B29CC007280EBC85006B8A8A /* DataController.swift in Sources */,
 				B29CC00D280F1BFF006B8A8A /* EmojiRatingView.swift in Sources */,

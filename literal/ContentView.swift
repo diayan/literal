@@ -19,27 +19,42 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(books) { book in
-                    NavigationLink {
-                        BookDetailView(book: book)
-                    } label: {
-                        EmojiRatingView(rating: book.rating)
-                            .font(.largeTitle)
-                        
-                        VStack(alignment: .leading) {
-                            Text(book.title ?? "Unknown title")
-                                .font(.headline)
+            VStack(alignment: .leading) {
+                                
+                List {
+                    ForEach(books) { book in
+                        NavigationLink {
+                            BookDetailView(book: book)
+                        } label: {
+                            EmojiRatingView(rating: book.rating)
+                                .font(.largeTitle)
                             
-                            Text(book.author ?? "Unknown Author")
-                                .foregroundColor(.secondary)
+                            VStack(alignment: .leading) {
+                                Text(book.title ?? "Unknown title")
+                                    .font(.headline)
+                                
+                                Text(book.author ?? "Unknown Author")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
+                    .onDelete(perform: deleteBook(at:))
                 }
-                .onDelete(perform: deleteBook(at:))
             }
             .navigationTitle("Literal")
             .searchable(text: $search)
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button {
+                    } label: {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                            Text("New Book")
+                        }
+                    }
+                    Spacer()
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -52,7 +67,6 @@ struct ContentView: View {
                         Label("Add Book", systemImage: "plus")
                     }
                 }
-                
             }.sheet(isPresented: $showingAddScreen) {
                 
                 NavigationView {
