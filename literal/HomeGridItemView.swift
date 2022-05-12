@@ -15,21 +15,20 @@ struct HomeGridItemView: View {
                     .foregroundColor(.blue)
                     .font(.largeTitle)
                 Spacer()
-                
                 Text("2")
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
+                    .font(.title.bold())
+                    .foregroundColor(Color.accentColor)
             }
-            .padding(.top)
-            .padding(.bottom)
+            .padding(.bottom, 4)
             Text("Today")
                 .font(.headline)
                 .foregroundColor(.gray)
         }
-        .padding()
-        .background(Color.primary)
-        .cornerRadius(10)
-        .frame(width: 160, height: 120)
+        .padding(.top, 8)
+        .padding(.bottom, 8)
+        .padding(.leading)
+        .padding(.trailing)
+        .clipShape(Capsule())
     }
 }
 

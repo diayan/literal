@@ -19,28 +19,46 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            
+            GeometryReader { g in
+                ScrollView {
+                    HStack {
+                        HomeGridItemView()
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        
+                        Spacer(minLength: 16)
+                        
+                        HomeGridItemView()
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                    .padding(.top)
+                    .padding(.leading, 16)
+                    .padding(.trailing, 16)
+                    
+                    List {
+                        ForEach(books) { book in
+                            NavigationLink {
+                                BookDetailView(book: book)
+                            } label: {
+                                EmojiRatingView(rating: book.rating)
+                                    .font(.largeTitle)
                                 
-                List {
-                    ForEach(books) { book in
-                        NavigationLink {
-                            BookDetailView(book: book)
-                        } label: {
-                            EmojiRatingView(rating: book.rating)
-                                .font(.largeTitle)
-                            
-                            VStack(alignment: .leading) {
-                                Text(book.title ?? "Unknown title")
-                                    .font(.headline)
-                                
-                                Text(book.author ?? "Unknown Author")
-                                    .foregroundColor(.secondary)
+                                VStack(alignment: .leading) {
+                                    Text(book.title ?? "Unknown title")
+                                        .font(.headline)
+                                    
+                                    Text(book.author ?? "Unknown Author")
+                                        .foregroundColor(.secondary)
+                                }
                             }
                         }
-                    }
-                    .onDelete(perform: deleteBook(at:))
+                        .onDelete(perform: deleteBook(at:))
+                    }.frame(width: g.size.width - 5, height: g.size.height - 50, alignment: .center)
                 }
             }
+            .background(Color.listBGColor)
             .navigationTitle("Literal")
             .searchable(text: $search)
             .toolbar {
@@ -67,7 +85,8 @@ struct ContentView: View {
                         Label("Add Book", systemImage: "plus")
                     }
                 }
-            }.sheet(isPresented: $showingAddScreen) {
+            }
+            .sheet(isPresented: $showingAddScreen) {
                 
                 NavigationView {
                     AddBookView()
