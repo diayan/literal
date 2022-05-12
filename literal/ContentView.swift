@@ -20,8 +20,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                                
                 List {
+                    HStack {
+                        HomeGridItemView()
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        
+                        Spacer()
+                        
+                        HomeGridItemView()
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                        
+                    }
+                    .padding()
+                    
                     ForEach(books) { book in
                         NavigationLink {
                             BookDetailView(book: book)
@@ -41,6 +52,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteBook(at:))
                 }
             }
+            .background(Color.listBGColor)
             .navigationTitle("Literal")
             .searchable(text: $search)
             .toolbar {
