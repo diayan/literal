@@ -19,20 +19,38 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                List {
-                    HStack {
-                        HomeGridItemView()
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+            Form {
+                Section {
+                    VStack(spacing: 16) {
+                        HStack(spacing: 16) {
+                            HomeGridItemView()
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                            
+                            HomeGridItemView()
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
                         
-                        Spacer()
-                        
-                        HomeGridItemView()
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                        
+                        HStack(spacing: 16) {
+                            HomeGridItemView()
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                            
+                            HomeGridItemView()
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
                     }
-                    .padding()
-                    
+                }.listRowBackground(Color.listBGColor)
+                    .padding(.leading, -20)
+                    .padding(.trailing, -20)
+                
+                Section(header: Text("My Books")
+                            .foregroundColor(Color.primary)
+                            .fontWeight(.bold)
+                            .textCase(.none)
+                ) {
                     ForEach(books) { book in
                         NavigationLink {
                             BookDetailView(book: book)
@@ -52,7 +70,6 @@ struct ContentView: View {
                     .onDelete(perform: deleteBook(at:))
                 }
             }
-            .background(Color.listBGColor)
             .navigationTitle("Literal")
             .searchable(text: $search)
             .toolbar {
@@ -80,7 +97,6 @@ struct ContentView: View {
                     }
                 }
             }.sheet(isPresented: $showingAddScreen) {
-                
                 NavigationView {
                     AddBookView()
                         .toolbar {
@@ -106,7 +122,6 @@ struct ContentView: View {
             let book = books[offset]
             moc.delete(book)
         }
-        
         try? moc.save()
     }
 }

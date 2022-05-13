@@ -12,23 +12,20 @@ struct HomeGridItemView: View {
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "book.closed.circle")
-                    .foregroundColor(.blue)
-                    .font(.largeTitle)
+                    .foregroundColor(.pink)
+                    .font(.title)
                 Spacer()
-                Text("2")
-                    .font(.title.bold())
-                    .foregroundColor(Color.accentColor)
+                Text("0")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.primary)
             }
             .padding(.bottom, 4)
             Text("Today")
                 .font(.headline)
                 .foregroundColor(.gray)
         }
-        .padding(.top, 8)
-        .padding(.bottom, 8)
-        .padding(.leading)
-        .padding(.trailing)
-        .clipShape(Capsule())
+        .padding(8)
     }
 }
 
