@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    let book: Book
+    @ObservedObject var bookViewModel: BookViewModel
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss //use to dismiss presented view
     @State private var showDeleteAlert = false
@@ -17,11 +17,11 @@ struct BookDetailView: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
-                Image(book.genre ?? "Fantasy")
+                Image(bookViewModel.book.genre ?? "Fantasy")
                     .resizable()
                     .scaleEffect()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
+                Text(bookViewModel.book.genre?.uppercased() ?? "FANTASY")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -31,17 +31,17 @@ struct BookDetailView: View {
                     .offset(x: -5, y: -5)
             }
             
-            Text(book.author ?? "Unknown Author")
+            Text(bookViewModel.book.author ?? "Unknown Author")
                 .font(.title)
                 .foregroundColor(.secondary)
             
-            Text(book.review ?? "No review")
+            Text(bookViewModel.book.review ?? "No review")
                 .padding()
             
-            RatingView(rating: .constant(book.rating!))
+            RatingView(rating: .constant(bookViewModel.book.rating!))
                 .font(.largeTitle)
         }
-        .navigationTitle(book.title ?? "Unknown Book")
+        .navigationTitle(bookViewModel.book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)
         .alert("Delete book?", isPresented: $showDeleteAlert) {
             Button("Delete", role: .destructive, action: deleteBook)

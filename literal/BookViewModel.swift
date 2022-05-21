@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class BookViewModel: ObservableObject {
+class BookViewModel: ObservableObject, Identifiable {
     @Published var book: Book
     
     var id: String = ""

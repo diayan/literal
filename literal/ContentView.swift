@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var search = ""
-    
     @State private var showingAddScreen = false
+    @ObservedObject var bookListViewModel = BookListViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,9 +22,9 @@ struct ContentView: View {
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                             
-                                HomeGridItemView()
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                            HomeGridItemView()
+                                .background(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         
                         HStack(spacing: 16) {
@@ -46,20 +46,11 @@ struct ContentView: View {
                             .fontWeight(.bold)
                             .textCase(.none)
                 ) {
-                    ForEach(books) { book in
+                    ForEach(bookListViewModel.bookViewModels) { bookViewModel in
                         NavigationLink {
-                            BookDetailView(book: book)
+                            BookDetailView(bookViewModel: bookViewModel)
                         } label: {
-                            EmojiRatingView(rating: book.rating!)
-                                .font(.largeTitle)
-                            
-                            VStack(alignment: .leading) {
-                                Text(book.title ?? "Unknown title")
-                                    .font(.headline)
-                                
-                                Text(book.author ?? "Unknown Author")
-                                    .foregroundColor(.secondary)
-                            }
+                            BookView(bookViewModel: bookViewModel)
                         }
                     }
                     .onDelete(perform: deleteBook(at:))
@@ -117,6 +108,26 @@ struct ContentView: View {
         for offset in offsets {
             //let book = books[offset]
             //books.remove(at: offset)
+        }
+    }
+}
+
+struct BookView: View {
+    @ObservedObject var bookViewModel: BookViewModel
+    
+    var body: some View {
+        EmojiRatingView(rating: bookViewModel.book.rating!)
+            .id(bookViewModel.id)
+            .font(.largeTitle)
+        
+        VStack(alignment: .leading) {
+            Text(bookViewModel.book.title ?? "Unknown title")
+                .id(bookViewModel.id)
+                .font(.headline)
+            
+            Text(bookViewModel.book.author ?? "Unknown Author")
+                .id(bookViewModel.id)
+                .foregroundColor(.secondary)
         }
     }
 }
