@@ -21,7 +21,7 @@ class BookViewModel: ObservableObject {
         BookViewModel(book: Book(
             title: "Treasure Island",
             rating: 5,
-            genre: "Adventure",
+            genre: "Romance",
             review: "Great book",
             author: "Louis Stevenson",
             completed: true,

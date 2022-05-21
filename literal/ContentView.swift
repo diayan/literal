@@ -22,9 +22,9 @@ struct ContentView: View {
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                             
-                            HomeGridItemView()
-                                .background(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                HomeGridItemView()
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         
                         HStack(spacing: 16) {
@@ -115,7 +115,7 @@ struct ContentView: View {
     
     func deleteBook(at offsets: IndexSet) {
         for offset in offsets {
-            let book = books[offset]
+            //let book = books[offset]
             //books.remove(at: offset)
         }
     }
