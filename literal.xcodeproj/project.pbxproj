@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B257400E282D9DAE00CA45C1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257400D282D9DAE00CA45C1 /* Colors.swift */; };
 		B27BCBB5283869C5000BB818 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BCBB4283869C5000BB818 /* Book.swift */; };
+		B27BCBB72838E075000BB818 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BCBB62838E074000BB818 /* BookListViewModel.swift */; };
+		B27BCBB92838E30C000BB818 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27BCBB82838E30C000BB818 /* BookViewModel.swift */; };
 		B29CBFD5280E8F79006B8A8A /* LiteralApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CBFD4280E8F79006B8A8A /* LiteralApp.swift */; };
 		B29CBFD7280E8F79006B8A8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CBFD6280E8F79006B8A8A /* ContentView.swift */; };
 		B29CBFD9280E8F7B006B8A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		B257400D282D9DAE00CA45C1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B27BCBB4283869C5000BB818 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B27BCBB62838E074000BB818 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
+		B27BCBB82838E30C000BB818 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		B29CBFD1280E8F79006B8A8A /* literal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = literal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29CBFD4280E8F79006B8A8A /* LiteralApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralApp.swift; sourceTree = "<group>"; };
 		B29CBFD6280E8F79006B8A8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */,
 				B257400D282D9DAE00CA45C1 /* Colors.swift */,
 				B27BCBB4283869C5000BB818 /* Book.swift */,
+				B27BCBB62838E074000BB818 /* BookListViewModel.swift */,
+				B27BCBB82838E30C000BB818 /* BookViewModel.swift */,
 			);
 			path = literal;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 				B2D8CE0028269C1F004484AB /* HomeGridItemView.swift in Sources */,
 				B27BCBB5283869C5000BB818 /* Book.swift in Sources */,
 				B29CBFD7280E8F79006B8A8A /* ContentView.swift in Sources */,
+				B27BCBB92838E30C000BB818 /* BookViewModel.swift in Sources */,
 				B29CC007280EBC85006B8A8A /* DataController.swift in Sources */,
 				B29CC00D280F1BFF006B8A8A /* EmojiRatingView.swift in Sources */,
+				B27BCBB72838E075000BB818 /* BookListViewModel.swift in Sources */,
 				B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */,
 				B29CBFD5280E8F79006B8A8A /* LiteralApp.swift in Sources */,
 				B29CC009280EBDC2006B8A8A /* AddBookView.swift in Sources */,
