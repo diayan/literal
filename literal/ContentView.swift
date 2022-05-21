@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc //get managed context
     @State private var search = ""
-    @FetchRequest(sortDescriptors: [
-        SortDescriptor(\.title), //sort alphabetically by title of book
-        SortDescriptor(\.author) //second sort just incase title is not enough to sort
-    ]) var books: FetchedResults<Book> //fetch all books that saved in core data
-    
+ 
     @State private var showingAddScreen = false
     
     var body: some View {
@@ -55,7 +50,7 @@ struct ContentView: View {
                         NavigationLink {
                             BookDetailView(book: book)
                         } label: {
-                            EmojiRatingView(rating: book.rating)
+                            EmojiRatingView(rating: book.rating!)
                                 .font(.largeTitle)
                             
                             VStack(alignment: .leading) {
@@ -74,14 +69,15 @@ struct ContentView: View {
             .searchable(text: $search)
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
+                    Spacer()
                     Button {
+                        showingAddScreen.toggle()
                     } label: {
                         HStack {
                             Image(systemName: "plus.circle.fill")
                             Text("New Book")
                         }
                     }
-                    Spacer()
                 }
             }
             .toolbar {
@@ -120,9 +116,7 @@ struct ContentView: View {
     func deleteBook(at offsets: IndexSet) {
         for offset in offsets {
             let book = books[offset]
-            moc.delete(book)
         }
-        try? moc.save()
     }
 }
 

@@ -38,7 +38,7 @@ struct BookDetailView: View {
             Text(book.review ?? "No review")
                 .padding()
             
-            RatingView(rating: .constant(Int(book.rating)))
+            RatingView(rating: .constant(book.rating!))
                 .font(.largeTitle)
         }
         .navigationTitle(book.title ?? "Unknown Book")
@@ -59,8 +59,6 @@ struct BookDetailView: View {
     }
     
     func deleteBook() {
-        moc.delete(book)
-        try? moc.save()
         dismiss() //dismiss detail view after deleting the book
     }
 }
