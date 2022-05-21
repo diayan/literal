@@ -50,16 +50,13 @@ struct AddBookView: View {
                 Section {
                     Button("Save") {
                         //add the book
-                        let newBook = Book(context: moc)
-                        newBook.id = UUID()
+                        var newBook = Book()
                         newBook.title = title
                         newBook.author = author
                         newBook.genre = genre
                         newBook.review = review
-                        newBook.rating = Int16(rating)
+                        newBook.rating = rating
                         
-                        try? moc.save()
-                        dismiss() //dismiss view after saving data
                     }
                 }
           //  }.navigationTitle("Add Book")
