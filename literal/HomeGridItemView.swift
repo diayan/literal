@@ -12,6 +12,8 @@ struct HomeGridItemView: View {
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "book.closed.circle")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(.pink)
                     .font(.title)
                 Spacer()

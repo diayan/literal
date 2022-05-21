@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var search = ""
- 
+    
     @State private var showingAddScreen = false
     
     var body: some View {
@@ -116,6 +116,7 @@ struct ContentView: View {
     func deleteBook(at offsets: IndexSet) {
         for offset in offsets {
             let book = books[offset]
+            //books.remove(at: offset)
         }
     }
 }
