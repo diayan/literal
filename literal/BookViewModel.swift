@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class BookViewModel: ObservableObject {
+class BookViewModel: ObservableObject, Identifiable {
     @Published var book: Book
     
     var id: String = ""
@@ -18,7 +18,16 @@ class BookViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     static func newBook() -> BookViewModel {
-        BookViewModel(book: Book(title: "Treasure Island", rating: 5, genre: "Adventure", review: "Great book", author: "Louis Stevenson", completed: true, dateStarted: "ddate", dateCompleted: "date"))
+        BookViewModel(book: Book(
+            title: "Treasure Island",
+            rating: 5,
+            genre: "Romance",
+            review: "Great book",
+            author: "Louis Stevenson",
+            completed: true,
+            dateStarted: "ddate",
+            dateCompleted: "date"
+        ))
     }
     
     init(book: Book) {

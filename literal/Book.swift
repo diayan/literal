@@ -22,8 +22,36 @@ struct Book: Identifiable {
 
 #if DEBUG
 let books = [
-    Book(title: "Treasure Island", rating: 4, genre: "Adventure", review: "Fantastic Book", author: "Louis Stevenson", completed: true, dateStarted: "02/03/2022", dateCompleted: "Today"),
-    Book(title: "Things Fall Apart", rating: 4, genre: "Adventure", review: "Fantastic Book", author: "Chinua Achebe", completed: true, dateStarted: "02/03/2022", dateCompleted: "Today"),
-    Book(title: "Oliver Twist", rating: 4, genre: "Adventure", review: "Fantastic Book", author: "Charles Dickens", completed: true, dateStarted: "02/03/2022", dateCompleted: "Today")
+    Book(
+        title: "Treasure Island",
+        rating: 4,
+        genre: "Fantasy",
+        review: "Fantastic Book",
+        author: "Louis Stevenson",
+        completed: true,
+        dateStarted: "02/03/2022",
+        dateCompleted: "Today"),
+    
+    Book(
+        title: "Things Fall Apart",
+        rating: 4,
+        genre: "Horror",
+        review: "Fantastic Book",
+        author: "Chinua Achebe",
+        completed: true,
+        dateStarted: "02/03/2022",
+        dateCompleted: "Today"
+    ),
+    
+    Book(
+        title: "Oliver Twist",
+        rating: 4,
+        genre: "Mystery",
+        review: "Fantastic Book",
+        author: "Charles Dickens",
+        completed: true,
+        dateStarted: "02/03/2022",
+        dateCompleted: "Today"
+    )
 ]
 #endif

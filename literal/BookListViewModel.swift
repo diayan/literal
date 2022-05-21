@@ -9,22 +9,24 @@ import Foundation
 import Combine
 import UIKit
 
+/* ObservableObject allows us bind the object to swiftui elements and makes sure ui
+  react to any changes to the view's models */
 class BookListViewModel: ObservableObject {
-    @Published var bookViewModel = [BookViewModel]()
+    @Published var bookViewModels = [BookViewModel]()
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.bookViewModel = books.map { book in
+        self.bookViewModels = books.map { book in
             BookViewModel(book: book)
         }
     }
     
     func removeBook(atOffsets indexSet: IndexSet) {
-        bookViewModel.remove(atOffsets: indexSet)
+        bookViewModels.remove(atOffsets: indexSet)
     }
     
     func addBook(book: Book) {
-        bookViewModel.append(BookViewModel(book: book))
+        bookViewModels.append(BookViewModel(book: book))
     }
 }
