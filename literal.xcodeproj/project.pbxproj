@@ -16,7 +16,6 @@
 		B29CBFD9280E8F7B006B8A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */; };
 		B29CBFDC280E8F7B006B8A8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29CBFDB280E8F7B006B8A8A /* Preview Assets.xcassets */; };
 		B29CBFE6280E8F7B006B8A8A /* LiteralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CBFE5280E8F7B006B8A8A /* LiteralTests.swift */; };
-		B29CC007280EBC85006B8A8A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC006280EBC85006B8A8A /* DataController.swift */; };
 		B29CC009280EBDC2006B8A8A /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC008280EBDC2006B8A8A /* AddBookView.swift */; };
 		B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00A280EE0A9006B8A8A /* RatingView.swift */; };
 		B29CC00D280F1BFF006B8A8A /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */; };
@@ -46,7 +45,6 @@
 		B29CBFDB280E8F7B006B8A8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B29CBFE1280E8F7B006B8A8A /* literalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = literalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29CBFE5280E8F7B006B8A8A /* LiteralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralTests.swift; sourceTree = "<group>"; };
-		B29CC006280EBC85006B8A8A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B29CC008280EBDC2006B8A8A /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		B29CC00A280EE0A9006B8A8A /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
@@ -72,6 +70,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B27BCBBA2839802B000BB818 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B27BCBB62838E074000BB818 /* BookListViewModel.swift */,
+				B27BCBB82838E30C000BB818 /* BookViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B27BCBBB28398046000BB818 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B27BCBB4283869C5000BB818 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B27BCBBC2839806E000BB818 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B29CBFD6280E8F79006B8A8A /* ContentView.swift */,
+				B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */,
+				B29CC00E280F60D1006B8A8A /* BookDetailView.swift */,
+				B29CC008280EBDC2006B8A8A /* AddBookView.swift */,
+				B29CC00A280EE0A9006B8A8A /* RatingView.swift */,
+				B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B27BCBBD28398100000BB818 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				B29CBFD4280E8F79006B8A8A /* LiteralApp.swift */,
+				B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		B27BCBBE28398110000BB818 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B257400D282D9DAE00CA45C1 /* Colors.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B29CBFC8280E8F79006B8A8A = {
 			isa = PBXGroup;
 			children = (
@@ -93,20 +138,12 @@
 		B29CBFD3280E8F79006B8A8A /* literal */ = {
 			isa = PBXGroup;
 			children = (
-				B29CBFD4280E8F79006B8A8A /* LiteralApp.swift */,
-				B29CBFD6280E8F79006B8A8A /* ContentView.swift */,
-				B29CC006280EBC85006B8A8A /* DataController.swift */,
-				B29CC00C280F1BFF006B8A8A /* EmojiRatingView.swift */,
-				B29CC00E280F60D1006B8A8A /* BookDetailView.swift */,
-				B29CC008280EBDC2006B8A8A /* AddBookView.swift */,
-				B29CC00A280EE0A9006B8A8A /* RatingView.swift */,
-				B29CBFD8280E8F7B006B8A8A /* Assets.xcassets */,
+				B27BCBBD28398100000BB818 /* Support */,
+				B27BCBBC2839806E000BB818 /* Views */,
 				B29CBFDA280E8F7B006B8A8A /* Preview Content */,
-				B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */,
-				B257400D282D9DAE00CA45C1 /* Colors.swift */,
-				B27BCBB4283869C5000BB818 /* Book.swift */,
-				B27BCBB62838E074000BB818 /* BookListViewModel.swift */,
-				B27BCBB82838E30C000BB818 /* BookViewModel.swift */,
+				B27BCBBE28398110000BB818 /* Utilities */,
+				B27BCBBB28398046000BB818 /* Models */,
+				B27BCBBA2839802B000BB818 /* ViewModels */,
 			);
 			path = literal;
 			sourceTree = "<group>";
@@ -233,7 +270,6 @@
 				B27BCBB5283869C5000BB818 /* Book.swift in Sources */,
 				B29CBFD7280E8F79006B8A8A /* ContentView.swift in Sources */,
 				B27BCBB92838E30C000BB818 /* BookViewModel.swift in Sources */,
-				B29CC007280EBC85006B8A8A /* DataController.swift in Sources */,
 				B29CC00D280F1BFF006B8A8A /* EmojiRatingView.swift in Sources */,
 				B27BCBB72838E075000BB818 /* BookListViewModel.swift in Sources */,
 				B29CC00B280EE0A9006B8A8A /* RatingView.swift in Sources */,
