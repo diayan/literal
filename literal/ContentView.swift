@@ -53,7 +53,9 @@ struct ContentView: View {
                             BookView(bookViewModel: bookViewModel)
                         }
                     }
-                    .onDelete(perform: deleteBook(at:))
+                    .onDelete { indexSet in
+                        bookListViewModel.removeBook(atOffsets: indexSet)
+                    }
                 }
             }
             .navigationTitle("Literal")

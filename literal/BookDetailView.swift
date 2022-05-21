@@ -13,7 +13,6 @@ struct BookDetailView: View {
     @Environment(\.dismiss) var dismiss //use to dismiss presented view
     @State private var showDeleteAlert = false
     
-    
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
