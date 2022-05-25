@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct Book: Identifiable {
@@ -18,6 +19,11 @@ struct Book: Identifiable {
     var completed: Bool?
     var dateStarted: String?
     var dateCompleted: String?
+    var imageName: String?
+                
+    var image: Image {
+        Image(imageName ?? "")
+    }
 }
 
 #if DEBUG
@@ -30,7 +36,9 @@ let books = [
         author: "Louis Stevenson",
         completed: true,
         dateStarted: "02/03/2022",
-        dateCompleted: "Today"),
+        dateCompleted: "Today",
+        imageName: "Mystery"
+    ),
     
     Book(
         title: "Things Fall Apart",
@@ -40,7 +48,8 @@ let books = [
         author: "Chinua Achebe",
         completed: true,
         dateStarted: "02/03/2022",
-        dateCompleted: "Today"
+        dateCompleted: "Today",
+        imageName: "Horror"
     ),
     
     Book(
@@ -51,7 +60,8 @@ let books = [
         author: "Charles Dickens",
         completed: true,
         dateStarted: "02/03/2022",
-        dateCompleted: "Today"
+        dateCompleted: "Today",
+        imageName: "Thriller"
     )
 ]
 #endif

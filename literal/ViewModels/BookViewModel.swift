@@ -26,7 +26,8 @@ class BookViewModel: ObservableObject, Identifiable {
             author: "Louis Stevenson",
             completed: true,
             dateStarted: "ddate",
-            dateCompleted: "date"
+            dateCompleted: "date",
+            imageName: "Mystery"
         ))
     }
     
