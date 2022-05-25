@@ -18,9 +18,11 @@ struct ContentView: View {
                 Section {
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
+                            NavigationLink(destination: AddBookView()) {
                             HomeGridItemView()
                                 .background(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
+                            }
                             
                             HomeGridItemView()
                                 .background(.white)
