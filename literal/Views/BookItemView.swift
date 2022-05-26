@@ -11,17 +11,59 @@ struct BookItemView: View {
     @ObservedObject var bookViewModel: BookViewModel
 
     var body: some View {
-        bookViewModel.book.image
-            .resizable()
-            .aspectRatio(3/2, contentMode: .fit)
-            .cornerRadius(10)
-            .overlay(TextOverlay(bookViewModel: bookViewModel))
-            .padding()
+        
+        ZStack {
+            RoundedRectangle(cornerRadius: 8)
+            .fill().foregroundColor(.white)
+            //.cornerRadius(20, corners: [.topLeft, .bottomRight])
+            VStack(alignment: .leading) {
+                ZStack {
+                    bookViewModel.book.image
+                        .renderingMode(.original)
+                        .resizable()
+                        .cornerRadius(8, corners: [[.topLeft, .topRight]])
+                        .frame(height: 140)
+                    VStack {
+                        HStack {
+                            Spacer()
+                            EmojiRatingView(rating: .constant(bookViewModel.book.rating!))
+                        }
+                        Spacer()
+                    }.padding(8)
+                    
+                }
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(bookViewModel.book.title ?? "Unknown")
+                            .bold()
+                            .foregroundColor(Color.primary)
+                        
+                        Text(bookViewModel.book.author ?? "Unknown author")
+                            .foregroundColor(Color.secondary)
+                    }.padding(.leading, 8)
+                    
+                    Spacer()
+                    
+                    ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                            .fill().foregroundColor(.green)
+                            .frame(width: 84, height: 24)
+                    Text("In Progress")
+                        .foregroundColor(Color.white)
+                        .font(.caption)
+                    }.padding(.trailing, 8)
+                }.padding(.bottom)
+
+            }
+           
+        }.padding(.bottom, 16)
     }
 }
 
 struct TextOverlay: View {
     @ObservedObject var bookViewModel: BookViewModel
+    
     var gradient: LinearGradient {
         LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.6), Color.black.opacity(0)]), startPoint: .bottom, endPoint: .center)
     }

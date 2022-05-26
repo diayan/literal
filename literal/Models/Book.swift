@@ -42,7 +42,7 @@ let books = [
     
     Book(
         title: "Things Fall Apart",
-        rating: 4,
+        rating: 5,
         genre: "Horror",
         review: "Fantastic Book",
         author: "Chinua Achebe",
@@ -54,7 +54,7 @@ let books = [
     
     Book(
         title: "Oliver Twist",
-        rating: 4,
+        rating: 2,
         genre: "Mystery",
         review: "Fantastic Book",
         author: "Charles Dickens",
