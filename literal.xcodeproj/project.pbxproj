@@ -22,6 +22,7 @@
 		B29CC00F280F60D1006B8A8A /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CC00E280F60D1006B8A8A /* BookDetailView.swift */; };
 		B2B1F010283C39C100991022 /* BookItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1F00F283C39C100991022 /* BookItemView.swift */; };
 		B2D8CE0028269C1F004484AB /* HomeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */; };
+		B2F1D340283EF0820078F5BA /* Extensions+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D33F283EF0820078F5BA /* Extensions+View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		B29CC00E280F60D1006B8A8A /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		B2B1F00F283C39C100991022 /* BookItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemView.swift; sourceTree = "<group>"; };
 		B2D8CDFF28269C1E004484AB /* HomeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGridItemView.swift; sourceTree = "<group>"; };
+		B2F1D33F283EF0820078F5BA /* Extensions+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				B27BCBBE28398110000BB818 /* Utilities */,
 				B27BCBBB28398046000BB818 /* Models */,
 				B27BCBBA2839802B000BB818 /* ViewModels */,
+				B2F1D33F283EF0820078F5BA /* Extensions+View.swift */,
 			);
 			path = literal;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F1D340283EF0820078F5BA /* Extensions+View.swift in Sources */,
 				B29CC00F280F60D1006B8A8A /* BookDetailView.swift in Sources */,
 				B257400E282D9DAE00CA45C1 /* Colors.swift in Sources */,
 				B2B1F010283C39C100991022 /* BookItemView.swift in Sources */,

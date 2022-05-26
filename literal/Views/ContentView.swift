@@ -14,8 +14,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section {
+            ScrollView(.vertical, showsIndicators: false) {
+//                Section {
+                VStack {
+                    
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
                             NavigationLink(destination: AddBookView()) {
@@ -39,27 +41,41 @@ struct ContentView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                     }
-                }.listRowBackground(Color.listBGColor)
-                    .padding(.leading, -20)
-                    .padding(.trailing, -20)
-                
-                Section(header: Text("My Books")
-                            .foregroundColor(Color.primary)
-                            .fontWeight(.bold)
-                            .textCase(.none)
-                ) {
+                    .padding(.bottom)
+//                }.listRowBackground(Color.listBGColor)
+//                    .padding(.leading, -20)
+//                    .padding(.trailing, -20)
+//
+//                Section(header: Text("My Books")
+//                            .foregroundColor(Color.primary)
+//                            .fontWeight(.bold)
+//                            .textCase(.none)
+//                ) {
+                    
+                    HStack {
+                        Section() {
+                            Text("My Books")
+                                .foregroundColor(Color.primary)
+                                .fontWeight(.bold)
+                                .textCase(.none)
+                        }
+                        Spacer()
+                        
+                    }
                     ForEach(bookListViewModel.bookViewModels) { bookViewModel in
-                        NavigationLink {
-                            BookDetailView(bookViewModel: bookViewModel)
-                        } label: {
-                            BookView(bookViewModel: bookViewModel)
+                        NavigationLink(destination: BookDetailView(bookViewModel: bookViewModel)) {
+                            BookItemView(bookViewModel: bookViewModel)
                         }
                     }
                     .onDelete { indexSet in
                         bookListViewModel.removeBook(atOffsets: indexSet)
                     }
+//                }
                 }
+                .padding()
+                    
             }
+            .background(Color.listBGColor)
             .navigationTitle("Literal")
             .searchable(text: $search)
             .toolbar {
@@ -120,7 +136,7 @@ struct BookView: View {
     @ObservedObject var bookViewModel: BookViewModel
     
     var body: some View {
-        EmojiRatingView(rating: bookViewModel.book.rating!)
+        EmojiRatingView(rating:.constant(bookViewModel.book.rating!))
             .id(bookViewModel.id)
             .font(.largeTitle)
         

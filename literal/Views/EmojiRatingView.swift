@@ -8,26 +8,31 @@
 import SwiftUI
 
 struct EmojiRatingView: View {
-    let rating: Int
-    
+    @Binding var rating: Int //binding property that will be accessible everywhere in the app
+
     var body: some View {
-        switch rating {
-        case 1:
-            return Text("😴")
-        case 2:
-            return Text("😔")
-        case 3:
-            return Text("🙂")
-        case 4:
-            return Text("😊")
-        default:
-            return Text("🤩")
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .fill().foregroundColor(.white)
+                .frame(width: 36, height: 36)
+            switch rating {
+            case 1:
+                Text("😴")
+            case 2:
+                Text("😔")
+            case 3:
+                Text("🙂")
+            case 4:
+                Text("😊")
+            default:
+                Text("🤩")
+            }
         }
     }
 }
 
 struct EmojiRatingView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiRatingView(rating: 3)
+        EmojiRatingView(rating: .constant(4))
     }
 }
