@@ -14,7 +14,7 @@ struct HomeGridItemView: View {
                 Image(systemName: "book.closed.circle")
                     .resizable()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(.pink)
+                    .foregroundColor(.red)
                     .font(.title)
                 Spacer()
                 Text("0")

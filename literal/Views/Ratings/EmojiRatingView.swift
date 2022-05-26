@@ -13,7 +13,7 @@ struct EmojiRatingView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .fill().foregroundColor(.white)
+                .fill().foregroundColor(.green)
                 .frame(width: 36, height: 36)
             switch rating {
             case 1:

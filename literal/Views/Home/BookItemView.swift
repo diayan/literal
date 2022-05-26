@@ -12,17 +12,22 @@ struct BookItemView: View {
 
     var body: some View {
         
+        //Show number of days to complete using the hourglass emoji
+        //move title to top
+        //maybe put a short summary in the middle
+        
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-            .fill().foregroundColor(.white)
+                .fill().foregroundColor(.white)
             //.cornerRadius(20, corners: [.topLeft, .bottomRight])
             VStack(alignment: .leading) {
                 ZStack {
-                    bookViewModel.book.image
-                        .renderingMode(.original)
-                        .resizable()
-                        .cornerRadius(8, corners: [[.topLeft, .topRight]])
-                        .frame(height: 140)
+//                    bookViewModel.book.image
+//                        .renderingMode(.original)
+//                        .resizable()
+//                        .cornerRadius(8, corners: [[.topLeft, .topRight]])
+//                        .frame(height: 140)
+                
                     VStack {
                         HStack {
                             Spacer()
