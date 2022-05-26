@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     @State private var search = ""
     @State private var showingAddScreen = false
     @ObservedObject var bookListViewModel = BookListViewModel()
@@ -15,15 +15,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-//                Section {
+                CategoryRowView(bookListViewModel: bookListViewModel)
+                    .padding(.leading)
+                    .padding(.trailing)
+                
                 VStack {
-                    
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
                             NavigationLink(destination: AddBookView()) {
-                            HomeGridItemView()
-                                .background(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                HomeGridItemView()
+                                    .background(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
                             }
                             
                             HomeGridItemView()
@@ -42,15 +44,6 @@ struct ContentView: View {
                         }
                     }
                     .padding(.bottom)
-//                }.listRowBackground(Color.listBGColor)
-//                    .padding(.leading, -20)
-//                    .padding(.trailing, -20)
-//
-//                Section(header: Text("My Books")
-//                            .foregroundColor(Color.primary)
-//                            .fontWeight(.bold)
-//                            .textCase(.none)
-//                ) {
                     
                     HStack {
                         Section() {
@@ -60,8 +53,8 @@ struct ContentView: View {
                                 .textCase(.none)
                         }
                         Spacer()
-                        
                     }
+                    
                     ForEach(bookListViewModel.bookViewModels) { bookViewModel in
                         NavigationLink(destination: BookDetailView(bookViewModel: bookViewModel)) {
                             BookItemView(bookViewModel: bookViewModel)
@@ -70,10 +63,8 @@ struct ContentView: View {
                     .onDelete { indexSet in
                         bookListViewModel.removeBook(atOffsets: indexSet)
                     }
-//                }
                 }
                 .padding()
-                    
             }
             .background(Color.listBGColor)
             .navigationTitle("Literal")
@@ -100,7 +91,7 @@ struct ContentView: View {
                     Button {
                         showingAddScreen.toggle()
                     } label: {
-                        Label("Add Book", systemImage: "plus")
+                        Label("Add Book", systemImage: "person.crop.circle")
                     }
                 }
             }.sheet(isPresented: $showingAddScreen) {
@@ -123,37 +114,11 @@ struct ContentView: View {
             }
         }
     }
-    
-    func deleteBook(at offsets: IndexSet) {
-        for offset in offsets {
-            //let book = books[offset]
-            //books.remove(at: offset)
-        }
-    }
 }
 
-struct BookView: View {
-    @ObservedObject var bookViewModel: BookViewModel
-    
-    var body: some View {
-        EmojiRatingView(rating:.constant(bookViewModel.book.rating!))
-            .id(bookViewModel.id)
-            .font(.largeTitle)
-        
-        VStack(alignment: .leading) {
-            Text(bookViewModel.book.title ?? "Unknown title")
-                .id(bookViewModel.id)
-                .font(.headline)
-            
-            Text(bookViewModel.book.author ?? "Unknown Author")
-                .id(bookViewModel.id)
-                .foregroundColor(.secondary)
-        }
-    }
-}
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeViewView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

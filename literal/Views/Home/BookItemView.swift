@@ -37,7 +37,7 @@ struct BookItemView: View {
                     VStack(alignment: .leading) {
                         Text(bookViewModel.book.title ?? "Unknown")
                             .bold()
-                            .foregroundColor(Color.primary)
+                            .foregroundColor(.black)
                         
                         Text(bookViewModel.book.author ?? "Unknown author")
                             .foregroundColor(Color.secondary)

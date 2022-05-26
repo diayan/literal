@@ -27,7 +27,8 @@ class BookViewModel: ObservableObject, Identifiable {
             completed: true,
             dateStarted: "ddate",
             dateCompleted: "date",
-            imageName: "Mystery"
+            imageName: "Mystery",
+            category: .horror
         ))
     }
     

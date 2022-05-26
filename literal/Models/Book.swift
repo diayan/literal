@@ -20,7 +20,20 @@ struct Book: Identifiable {
     var dateStarted: String?
     var dateCompleted: String?
     var imageName: String?
-                
+    var category: Category?
+    
+    enum Category: String, CaseIterable, Codable {
+        case fantasy = "Fantasy"
+        case horror = "Horror"
+        case adventure = "Adventure"
+        case finance = "Finance"
+        case selfGrowth = "Self-Growth"
+        case kids = "Kids"
+        case mystery = "Mystery"
+        case poetry = "Poetry"
+        case romance = "Romance"
+        case thriller = "Thriller"
+    }
     var image: Image {
         Image(imageName ?? "")
     }
@@ -37,7 +50,8 @@ let books = [
         completed: true,
         dateStarted: "02/03/2022",
         dateCompleted: "Today",
-        imageName: "Mystery"
+        imageName: "Mystery",
+        category: .fantasy
     ),
     
     Book(
@@ -49,7 +63,8 @@ let books = [
         completed: true,
         dateStarted: "02/03/2022",
         dateCompleted: "Today",
-        imageName: "Horror"
+        imageName: "Horror",
+        category: .horror
     ),
     
     Book(
@@ -61,7 +76,8 @@ let books = [
         completed: true,
         dateStarted: "02/03/2022",
         dateCompleted: "Today",
-        imageName: "Thriller"
+        imageName: "Thriller",
+        category: .adventure
     )
 ]
 #endif
